@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <title></title>
+
+      <script type="text/javascript" src="js/sms.js"></script>
+      
+      
+      <script type="text/javascript">
+         var app = {
+            // Application Constructor
+            initialize: function() {
+               this.bindEvents();
+            },
+            // Bind Event Listeners
+            //
+            // Bind any events that are required on startup. Common events are:
+            // 'load', 'deviceready', 'offline', and 'online'.
+            bindEvents: function() {
+               document.addEventListener('deviceready', this.onDeviceReady, false);
+            },
+            // deviceready Event Handler
+            //
+            // The scope of 'this' is the event. In order to call the 'receivedEvent'
+            // function, we must explicity call 'app.receivedEvent(...);'
+            onDeviceReady: function() {
+               $("#btnDefaultSMS").click(function(){
+                  alert("click");
+                  var number = $("#numberTxt").val();
+                  var message = $("#messageTxt").val();
+                  var intent = "INTENT"; //leave empty for sending sms using default intent
+                  var success = function () { alert('Message sent successfully'); };
+                  var error = function (e) { alert('Message Failed:' + e); };
+                  sms.send(number, message, intent, success, error);
+               });
+            }
+         };
+                   
+      </script>
+   </head>
+   <body>
+      <!-- Home -->
+      <div data-role="page" id="page1">
+         <div data-theme="a" data-role="header">
+            <h4>
+               SMS Example
+            </h4>
+         </div>
+         <div data-role="content">
+            <div data-role="fieldcontain">
+               <input name="" id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
+               <br/>
+               <textarea name="" id="messageTxt" placeholder="Enter message"></textarea>
+               <br/>
+               <input id="btnDefaultSMS" type="button" value="Send SMS" />
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
