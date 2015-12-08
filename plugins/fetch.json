@@ -2,7 +2,7 @@
     "org.apache.cordova.plugin.sms": {
         "source": {
             "type": "git",
-            "url": "https://github.com/aharris88/phonegap-sms-plugin.git",
+            "url": "https://github.com/Telerik-Verified-Plugins/SMS",
             "subdir": "."
         },
         "is_top_level": true,
